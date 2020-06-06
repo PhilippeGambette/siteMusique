@@ -164,13 +164,8 @@ Entrez votre adresse de courriel pour recevoir la newsletter : <input type="text
 <input type="submit" value="Envoyer mon adresse de courriel">
 </form>
 
+<footer>
+Code fourni sous licence AGPL à l'adresse <a href="https://github.com/PhilippeGambette/siteMusique">https://github.com/PhilippeGambette/siteMusique</a>
+</footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
