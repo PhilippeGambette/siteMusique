@@ -6,6 +6,30 @@
   <style>.album{width:150px;}</style>
 </head>
 <body>
+<h1>Recherche d’une chanson</h1>
+<label for="requeteChanson">Merci d'entrer le titre de la chanson recherchée (recherche sensible à la casse) : </label><input type="text" id="requeteChanson">
+<div id="results"></div>
+<SCRIPT TYPE="text/javascript" SRC="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript">
+$(document).ready(function(){
+    $("#requeteChanson").on("keyup",function(){
+        // On récupère le texte recherché
+        var requete = $("#requeteChanson").val();
+        console.log("api.php?requete="+requete);
+        // Envoi de la requête à l'API
+        $.get("api.php?requete="+requete).done(function(data){
+            // Récupération des résultats de la requête
+            $("#results").html("");
+            var i=0;
+            while(i<data.length){
+              $("#results").append("<p>"+data[i].id+" : "+data[i].nom+"</p>");
+              i++;
+            }
+        }) 
+    })
+})
+</SCRIPT>
+
 <?php 
 echo("<h1>Liste des albums de la base</h1>"); 
 
